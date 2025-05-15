@@ -1,0 +1,217 @@
+
+    /* ---------- Color Tokens -------- */
+
+    :root{
+      --indigo: #1d2a8a;
+      --sky: #9ec3ff;
+      --purple: #7b5cff;
+      --turq: #27b2cd;
+      --peach: #f5bead;
+      --card-glow: rgba(155,173,255,0.35);
+    }
+    
+    /* ---------- Layout Wrappers -------- */
+    
+    #result-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    #summary {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      flex: 1 1 340px;
+      justify-content: center;
+    }
+    
+    /* ---------- Updated Feedback Section with Grid Layout -------- */
+    
+    #feedback {
+      flex: 3 1 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    /* ---------- Mode-Specific Grid Layouts -------- */
+  
+        .main-feedback-grid {
+  gap: 1.5rem;
+  justify-content: center; /* center contents in both grid & flex */
+  margin: 0 auto;          /* center container itself */
+}
+
+    /* Peer Mode: 4 columns */
+    .main-feedback-grid.peer {
+      display: grid; 
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 1000px; /* Adjust as needed */
+    }
+    
+    /* Stranger Mode: 3 columns top row, 2 centered below */
+        .main-feedback-grid.stranger {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 900px; /* adjust as needed */
+}
+
+.main-feedback-grid.stranger .feedback-section:nth-child(-n+3) {
+  flex: 0 1 30%;
+}
+
+.main-feedback-grid.stranger .feedback-section:nth-child(n+4) {
+  flex: 0 1 45%;
+}
+  
+    /* Investor Mode: 3 columns in 2 rows */
+    .main-feedback-grid.investor {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px; /* adjust as needed */
+}
+
+.main-feedback-grid.investor .feedback-section {
+  flex: 0 1 30%;  /* 30% width → 3 per row, auto wraps to 2 rows */
+}
+    
+    /* ---------- Speech Dynamics Header and Grid -------- */
+    
+    .speech-dynamics-header {
+      font-size: 1.2rem;
+      color: var(--indigo);
+      margin-top: 2rem;
+      text-align: center;
+    }
+    
+    .speech-dynamics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    
+    @media(max-width:600px){
+      #feedback {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .main-feedback-grid, .speech-dynamics-grid {
+        grid-template-columns: 1fr !important;
+        grid-template-areas: none !important;
+      }
+      .main-feedback-grid.stranger .feedback-section {
+        grid-area: auto !important;
+      }
+      .speech-dynamics-grid {
+        margin-top: 1rem;
+      }
+    }
+    
+    /* ---------- Gauge + Score -------- */
+    
+    .gauge-wrapper {
+      position: relative;
+      width: 220px;
+      height: 115px;
+    }
+    
+    #gauge {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    
+    .summary-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: -70px;
+    }
+    
+    .score-big {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--indigo);
+      text-shadow: 0 2px 6px rgba(0,0,0,.12);
+    }
+    
+    .score-big span {
+      font-size: 1.6rem;
+    }
+    
+    .headline {
+      margin-top: 1rem;
+      max-width: 320px;
+      font-size: 1rem;
+      color: var(--indigo);
+      text-align: center;
+    }
+    
+    /* ---------- Feedback “Glass” Cards -------- */
+    
+    .feedback-section{
+      display: flex;
+      flex-direction: column;
+      background-color: #ffffffb3;
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,.45);
+      border-radius: 24px;
+      padding: 1.2rem 1.4rem;
+      margin: 0;
+      box-shadow: 1px 7px 10px rgba(0, 0, 0, .12);
+      align-items: center;
+      justify-content: flex-start;
+    }
+    
+    .feedback-section img.header-icon {
+      width: 40px; /* Adjust size as needed */
+      height: 40px;
+      margin-bottom: 0.5rem;
+    }
+    
+    .feedback-section h4{
+      margin: 0 0 .7rem;
+      font-size: 1.05rem;
+      color: var(--indigo);
+    }
+    
+    .feedback-section ul{
+      margin: 0;
+      padding: 0;
+      list-style: none; /* Removed bullet points */
+    }
+    
+    .feedback-section li{
+      margin: 0 0 .35rem;
+      line-height: 1.4;
+      display: flex;
+      align-items: center;
+    }
+    
+    .feedback-section li img.icon {
+      width: 16px; /* Adjust size as needed */
+      height: 16px;
+      margin-right: 0.5rem;
+    }
+    
+    /* ---------- Gauge Gradient -------- */
+    
+    #ggrad stop:nth-child(1){ stop-color: var(--purple); }
+    #ggrad stop:nth-child(2){ stop-color: var(--purple); }
+    #ggrad stop:nth-child(3){ stop-color: #5776ff; } /* Mid blue */
+    #ggrad stop:nth-child(4){ stop-color: #4aa8ff; }
+    #ggrad stop:nth-child(5){ stop-color: var(--turq); }
+    #ggrad stop:nth-child(6){ stop-color: var(--turq); }
+    
+    /* ---------- Chart Styles -------- */
+    
+    /* Ensure the canvas fills the chart div */
+    #chart canvas {
+      width: 100% !important;
+      height: auto !important;
+    }
