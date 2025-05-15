@@ -30,7 +30,7 @@
 
     /* ---------- CONFIG -------------------------------------------------- */
 
-    const OPENAI_API_KEY = "Bearer sk-proj-pelOPW3waufbjH22VgHQT3BlbkFJlP9JQl9PpDBsfaeaTwoP"; // **Important:** Replace with your actual API key. DO NOT expose it in client-side code for production. Consider using a backend proxy.
+    const OPENAI_API_KEY = "Bearer sk....."; // **Important:** Replace with your actual API key. DO NOT expose it in client-side code for production. Consider using a backend proxy.
     const OPENAI_USER = "static-guest"; // Ensure this is a valid user identifier if required by OpenAI API.
 
     /* ---------- Image URLs for Headers and Icons ----------------------- */
