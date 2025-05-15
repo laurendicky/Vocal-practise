@@ -215,3 +215,38 @@
       width: 100% !important;
       height: auto !important;
     }
+    
+    /* ---------- Script Thoughts Styles -------- */
+    
+    #script-thoughts {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background-color: #f0f8ff; /* AliceBlue for distinction */
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    #script-thoughts h3 {
+      margin-bottom: 1rem;
+      color: var(--indigo);
+      text-align: center;
+    }
+    
+    .thought-section {
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background-color: #ffffff; /* White background for each thought */
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+    
+    .thought-section p {
+      margin: 0.5rem 0;
+      color: #333333;
+    }
+    
+    .thought-section a {
+      color: var(--sky);
+      text-decoration: underline;
+      cursor: pointer;
+    }
