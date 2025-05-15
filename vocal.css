@@ -1,4 +1,5 @@
 
+    
     /* ---------- Color Tokens -------- */
 
     :root{
@@ -39,11 +40,11 @@
     
     /* ---------- Mode-Specific Grid Layouts -------- */
   
-        .main-feedback-grid {
-  gap: 1.5rem;
-  justify-content: center; /* center contents in both grid & flex */
-  margin: 0 auto;          /* center container itself */
-}
+    .main-feedback-grid {
+      gap: 1.5rem;
+      justify-content: center; /* center contents in both grid & flex */
+      margin: 0 auto;          /* center container itself */
+    }
 
     /* Peer Mode: 4 columns */
     .main-feedback-grid.peer {
@@ -53,30 +54,30 @@
     }
     
     /* Stranger Mode: 3 columns top row, 2 centered below */
-        .main-feedback-grid.stranger {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 900px; /* adjust as needed */
-}
-
-.main-feedback-grid.stranger .feedback-section:nth-child(-n+3) {
-  flex: 0 1 30%;
-}
-
-.main-feedback-grid.stranger .feedback-section:nth-child(n+4) {
-  flex: 0 1 45%;
-}
-  
+    .main-feedback-grid.stranger {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 900px; /* adjust as needed */
+    }
+    
+    .main-feedback-grid.stranger .feedback-section:nth-child(-n+3) {
+      flex: 0 1 30%;
+    }
+    
+    .main-feedback-grid.stranger .feedback-section:nth-child(n+4) {
+      flex: 0 1 45%;
+    }
+      
     /* Investor Mode: 3 columns in 2 rows */
     .main-feedback-grid.investor {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 1200px; /* adjust as needed */
-}
-
-.main-feedback-grid.investor .feedback-section {
-  flex: 0 1 30%;  /* 30% width → 3 per row, auto wraps to 2 rows */
-}
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px; /* adjust as needed */
+    }
+    
+    .main-feedback-grid.investor .feedback-section {
+      flex: 0 1 30%;  /* 30% width → 3 per row, auto wraps to 2 rows */
+    }
     
     /* ---------- Speech Dynamics Header and Grid -------- */
     
@@ -108,6 +109,9 @@
       }
       .speech-dynamics-grid {
         margin-top: 1rem;
+      }
+      #script-thoughts {
+        padding: 1rem;
       }
     }
     
@@ -221,32 +225,56 @@
     #script-thoughts {
       margin-top: 2rem;
       padding: 1.5rem;
-      background-color: #f0f8ff; /* AliceBlue for distinction */
+      background-color: #f0f4ff;
+      border: 1px solid var(--indigo);
       border-radius: 12px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-    
+
     #script-thoughts h3 {
       margin-bottom: 1rem;
       color: var(--indigo);
       text-align: center;
     }
-    
-    .thought-section {
+
+    .script-thought-item {
       margin-bottom: 1rem;
       padding: 1rem;
-      background-color: #ffffff; /* White background for each thought */
+      background-color: #ffffff;
+      border-left: 4px solid var(--turq);
       border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      position: relative;
     }
-    
-    .thought-section p {
-      margin: 0.5rem 0;
-      color: #333333;
+
+    .script-thought-item:last-child {
+      margin-bottom: 0;
     }
-    
-    .thought-section a {
-      color: var(--sky);
-      text-decoration: underline;
+
+    .script-thought-item .timestamp {
+      position: absolute;
+      top: 0.5rem;
+      right: 1rem;
+      font-size: 0.85rem;
+      color: var(--indigo);
+    }
+
+    .script-thought-item .phrase {
+      font-weight: bold;
       cursor: pointer;
+      color: var(--purple);
     }
+
+    .script-thought-item .phrase:hover {
+      text-decoration: underline;
+    }
+
+    .script-thought-item .emotion {
+      margin-top: 0.5rem;
+      color: var(--turq);
+    }
+
+    .script-thought-item .tip {
+      margin-top: 0.5rem;
+      color: var(--indigo);
+    }
+
